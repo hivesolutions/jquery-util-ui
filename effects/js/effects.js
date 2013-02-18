@@ -20,7 +20,7 @@
 // __copyright__ = Copyright (c) 2010-2012 Hive Solutions Lda.
 // __license__   = Hive Solutions Confidential Usage License (HSCUL)
 
-(function($) {
+(function(jQuery) {
     jQuery.fn.fadeTransition = function(time, callback) {
         // the fade minimum opacity
         var FADE_MINIMUM_OPACITY = 0.15;
