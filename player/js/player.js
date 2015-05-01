@@ -27,7 +27,6 @@
  * @name jquery-player.js
  * @author João Magalhães <joamag@hive.pt>
  * @version 1.0
- * @date May 16, 2011
  * @category jQuery plugin
  * @copyright Copyright (c) 2008-2015 Hive Solutions Lda.
  * @license Hive Solutions Confidential Usage License (HSCUL) -
