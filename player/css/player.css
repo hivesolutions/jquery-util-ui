@@ -215,10 +215,10 @@
     background: transparent url(../images/player-buttons-sprite.png) no-repeat left -108px;
     cursor: pointer;
     height: 36px;
-    margin: 0px;
+    margin: 0px 0px 0px 0px;
     opacity: 0.8;
     overflow: hidden;
-    padding: 0px;
+    padding: 0px 0px 0px 0px;
     width: 36px;
 }
 
