@@ -48,7 +48,8 @@
 
         // the chart colors
         var CHART_COLORS = ["#7452c5", "#ef6a15", "#0176ff", "#e0cf21",
-                "#22b573", "#c69c6d", "#c14f53", "#f0e7d0", "#ff78ff"]
+            "#22b573", "#c69c6d", "#c14f53", "#f0e7d0", "#ff78ff"
+        ]
 
         // the number of vertical steps
         var VERTICAL_STEPS = 8;
@@ -97,9 +98,9 @@
 
         // the data
         var DATA = {
-            labels : [],
-            horizontalLabels : [],
-            values : {}
+            labels: [],
+            horizontalLabels: [],
+            values: {}
         }
 
         // the default values for the menu
@@ -129,14 +130,12 @@
         /**
          * Creates the necessary html for the component.
          */
-        var _appendHtml = function() {
-        };
+        var _appendHtml = function() {};
 
         /**
          * Registers the event handlers for the created objects.
          */
-        var _registerHandlers = function() {
-        };
+        var _registerHandlers = function() {};
 
         var drawAxis = function(matchedObject, options) {
             // retrieves the options values
@@ -159,14 +158,11 @@
 
             // draws a dashed line
             context.dashedLine(marginLeft + verticalLabelWidth, marginTop,
-                    marginLeft + verticalLabelWidth, marginTop
-                            + verticalAxisSize, [8, 10]);
+                marginLeft + verticalLabelWidth, marginTop + verticalAxisSize, [8, 10]);
 
             // draws a dashed line
-            context.dashedLine(marginLeft + verticalLabelWidth, marginTop
-                            + verticalAxisSize, marginLeft + verticalLabelWidth
-                            + horizontalAxisSize, marginTop + verticalAxisSize,
-                    [8, 10]);
+            context.dashedLine(marginLeft + verticalLabelWidth, marginTop + verticalAxisSize, marginLeft +
+                verticalLabelWidth + horizontalAxisSize, marginTop + verticalAxisSize, [8, 10]);
 
             // strokes and closes the path
             context.stroke();
@@ -207,8 +203,7 @@
             // iterates over the range of values
             for (var index = 0; index < horizontalSteps - 1; index++) {
                 // draws a dashed line
-                context.dashedLine(currentX, marginTop, currentX, marginTop
-                                + verticalAxisSize, [4, 4]);
+                context.dashedLine(currentX, marginTop, currentX, marginTop + verticalAxisSize, [4, 4]);
 
                 // increments the current x position with the x
                 // position increment
@@ -225,8 +220,8 @@
             for (var index = 0; index < verticalSteps - 1; index++) {
                 // draws a dashed line
                 context.dashedLine(marginLeft + verticalLabelWidth, currentY,
-                        marginLeft + verticalLabelWidth + horizontalAxisSize,
-                        currentY, [4, 4]);
+                    marginLeft + verticalLabelWidth + horizontalAxisSize,
+                    currentY, [4, 4]);
 
                 // decrements the current y position with the y
                 // position increment
@@ -277,8 +272,7 @@
 
                 // draws the current value as string
                 context.fillText(horizontalLabel, currentX - (textWidth / 2),
-                        marginTop + verticalAxisSize + labelOffset
-                                + labelFontRealSize);
+                    marginTop + verticalAxisSize + labelOffset + labelFontRealSize);
 
                 // increments the current x position with the x
                 // position increment
@@ -305,9 +299,9 @@
                 var textWidth = textMetrics.width;
 
                 // draws the current value as string
-                context.fillText(currentValueString, marginLeft
-                                + verticalLabelWidth - labelOffset - textWidth,
-                        currentY + Math.round(labelFontRealSize / 2));
+                context.fillText(currentValueString, marginLeft + verticalLabelWidth - labelOffset -
+                    textWidth,
+                    currentY + Math.round(labelFontRealSize / 2));
 
                 // drecrements the current y position with the y
                 // position increment
@@ -388,8 +382,7 @@
                 var positionValue = valueSteps * yPositionIncrement;
 
                 // moves to the initial line position
-                context.moveTo(currentX, marginTop + verticalAxisSize
-                                - positionValue);
+                context.moveTo(currentX, marginTop + verticalAxisSize - positionValue);
 
                 // increments the current x position with the x
                 // position increment
@@ -402,13 +395,11 @@
 
                     // calculates the (vertical) position from the current value
                     var deltaValue = currentValue - minimumValue;
-                    var valueSteps = (deltaValue * verticalSteps)
-                            / maximumValue;
+                    var valueSteps = (deltaValue * verticalSteps) / maximumValue;
                     var positionValue = valueSteps * yPositionIncrement;
 
                     // draws the line to the current position value
-                    context.lineTo(currentX, marginTop + verticalAxisSize
-                                    - positionValue);
+                    context.lineTo(currentX, marginTop + verticalAxisSize - positionValue);
 
                     // increments the current x position with the x
                     // position increment
@@ -429,8 +420,7 @@
 
                     // calculates the (vertical) position from the current value
                     var deltaValue = currentValue - minimumValue;
-                    var valueSteps = (deltaValue * verticalSteps)
-                            / maximumValue;
+                    var valueSteps = (deltaValue * verticalSteps) / maximumValue;
                     var positionValue = valueSteps * yPositionIncrement;
 
                     // sets the background circle color as the fill color
@@ -438,8 +428,8 @@
 
                     // draws the bigger background circle
                     context.beginPath();
-                    context.arc(currentX, marginTop + verticalAxisSize
-                                    - positionValue, 20, 0, Math.PI * 2, true);
+                    context.arc(currentX, marginTop + verticalAxisSize - positionValue, 20, 0, Math.PI * 2,
+                        true);
                     context.fill();
                     context.closePath();
 
@@ -468,8 +458,7 @@
 
                     // calculates the (vertical) position from the current value
                     var deltaValue = currentValue - minimumValue;
-                    var valueSteps = (deltaValue * verticalSteps)
-                            / maximumValue;
+                    var valueSteps = (deltaValue * verticalSteps) / maximumValue;
                     var positionValue = valueSteps * yPositionIncrement;
 
                     // sets the value circle color as the fill color
@@ -477,8 +466,8 @@
 
                     // draws the smaller value circle
                     context.beginPath();
-                    context.arc(currentX, marginTop + verticalAxisSize
-                                    - positionValue, 10, 0, Math.PI * 2, true);
+                    context.arc(currentX, marginTop + verticalAxisSize - positionValue, 10, 0, Math.PI * 2,
+                        true);
                     context.fill();
                     context.closePath();
 
@@ -515,51 +504,31 @@
             var chartHeight = options["height"];
 
             // sets the ui values
-            var labelFontName = options["labelFontName"]
-                    ? options["labelFontName"]
-                    : LABEL_FONT_NAME;
-            var labelFontSize = options["labelFontSize"]
-                    ? options["labelFontSize"]
-                    : LABEL_FONT_SIZE;
-            var labelFontRealSize = options["labelFontRealSize"]
-                    ? options["labelFontRealSize"]
-                    : LABEL_FONT_REAL_SIZE;
-            var axisColor = options["axisColor"]
-                    ? options["axisColor"]
-                    : AXIS_COLOR;
-            var auxiliaryAxisColor = options["auxiliaryAxisColor"]
-                    ? options["auxiliaryAxisColor"]
-                    : AUXILIARY_AXIS_COLOR;
-            var valueCircleColor = options["valueCircleColor"]
-                    ? options["valueCircleColor"]
-                    : VALUE_CIRCLE_COLOR;
-            var backgroundCircleColor = options["backgroundCircleColor"]
-                    ? options["backgroundCircleColor"]
-                    : BACKGROUND_CIRCLE_COLOR;
-            var backgroundBoxColor = options["backgroundBoxColor"]
-                    ? options["backgroundBoxColor"]
-                    : BACKGROUND_BOX_COLOR;
-            var chartColors = options["chartColors"]
-                    ? options["chartColors"]
-                    : CHART_COLORS;
+            var labelFontName = options["labelFontName"] ? options["labelFontName"] : LABEL_FONT_NAME;
+            var labelFontSize = options["labelFontSize"] ? options["labelFontSize"] : LABEL_FONT_SIZE;
+            var labelFontRealSize = options["labelFontRealSize"] ? options["labelFontRealSize"] :
+                LABEL_FONT_REAL_SIZE;
+            var axisColor = options["axisColor"] ? options["axisColor"] : AXIS_COLOR;
+            var auxiliaryAxisColor = options["auxiliaryAxisColor"] ? options["auxiliaryAxisColor"] :
+                AUXILIARY_AXIS_COLOR;
+            var valueCircleColor = options["valueCircleColor"] ? options["valueCircleColor"] :
+                VALUE_CIRCLE_COLOR;
+            var backgroundCircleColor = options["backgroundCircleColor"] ? options["backgroundCircleColor"] :
+                BACKGROUND_CIRCLE_COLOR;
+            var backgroundBoxColor = options["backgroundBoxColor"] ? options["backgroundBoxColor"] :
+                BACKGROUND_BOX_COLOR;
+            var chartColors = options["chartColors"] ? options["chartColors"] : CHART_COLORS;
 
             // sets the number of steps
-            var verticalSteps = options["verticalSteps"]
-                    ? options["verticalSteps"]
-                    : VERTICAL_STEPS;
-            var horizontalSteps = options["horizontalSteps"]
-                    ? options["horizontalSteps"]
-                    : HORIZONTAL_STEPS;
+            var verticalSteps = options["verticalSteps"] ? options["verticalSteps"] : VERTICAL_STEPS;
+            var horizontalSteps = options["horizontalSteps"] ? options["horizontalSteps"] :
+                HORIZONTAL_STEPS;
 
             // sets the maximum and minimum values and calculates
             // the range value
-            var maximumValue = options["maximumValue"]
-                    ? Math.ceil(options["maximumValue"] / verticalSteps)
-                            * verticalSteps
-                    : MAXIMUM_VALUE;
-            var minimumValue = options["minimumValue"]
-                    ? options["minimumValue"]
-                    : MINIMUM_VALUE;
+            var maximumValue = options["maximumValue"] ? Math.ceil(options["maximumValue"] / verticalSteps) *
+                verticalSteps : MAXIMUM_VALUE;
+            var minimumValue = options["minimumValue"] ? options["minimumValue"] : MINIMUM_VALUE;
             var rangeValue = maximumValue - minimumValue;
 
             // the increment in each step value to be used
@@ -567,51 +536,33 @@
 
             // retrieves the horizontal and vertical label width
             // and height values
-            var horizontalLabelHeight = options["horizontalLabelHeight"]
-                    ? options["horizontalLabelHeight"]
-                    : HORIZONTAL_LABEL_HEIGHT;
-            var verticalLabelWidth = options["verticalLabelWidth"]
-                    ? options["verticalLabelWidth"]
-                    : VERTICAL_LABEL_WIDTH;
+            var horizontalLabelHeight = options["horizontalLabelHeight"] ? options["horizontalLabelHeight"] :
+                HORIZONTAL_LABEL_HEIGHT;
+            var verticalLabelWidth = options["verticalLabelWidth"] ? options["verticalLabelWidth"] :
+                VERTICAL_LABEL_WIDTH;
 
             // retrieves the label offset
-            var labelOffset = options["labelOffset"]
-                    ? options["labelOffset"]
-                    : LABEL_OFFSET;
+            var labelOffset = options["labelOffset"] ? options["labelOffset"] : LABEL_OFFSET;
 
             // calculates the horizontal margins
-            var marginLeft = options["marginLeft"]
-                    ? options["marginLeft"]
-                    : MARGIN_LEFT;
-            var marginRight = options["marginRight"]
-                    ? options["marginRight"]
-                    : MARGIN_RIGHT;
-            var horizontalMargin = marginLeft + marginRight
-                    + verticalLabelWidth;
+            var marginLeft = options["marginLeft"] ? options["marginLeft"] : MARGIN_LEFT;
+            var marginRight = options["marginRight"] ? options["marginRight"] : MARGIN_RIGHT;
+            var horizontalMargin = marginLeft + marginRight + verticalLabelWidth;
 
             // calculates the vertical margins
-            var marginTop = options["marginTop"]
-                    ? options["marginTop"]
-                    : MARGIN_TOP;
-            var marginBottom = options["marginBottom"]
-                    ? options["marginBottom"]
-                    : MARGIN_BOTTOM;
-            var verticalMargin = marginTop + marginBottom
-                    + horizontalLabelHeight;
+            var marginTop = options["marginTop"] ? options["marginTop"] : MARGIN_TOP;
+            var marginBottom = options["marginBottom"] ? options["marginBottom"] : MARGIN_BOTTOM;
+            var verticalMargin = marginTop + marginBottom + horizontalLabelHeight;
 
             // calculates the box margins and offsets
-            var boxMarginHorizontal = options["boxMarginHorizontal"]
-                    ? options["boxMarginHorizontal"]
-                    : BOX_MARGIN_HORIZONTAL;
-            var boxMarginVertical = options["boxMarginVertical"]
-                    ? options["boxMarginVertical"]
-                    : BOX_MARGIN_VERTICAL;
-            var boxHorizontalOffset = options["boxHorizontalOffset"]
-                    ? options["boxHorizontalOffset"]
-                    : BOX_HORIZONTAL_OFFSET;
-            var boxVerticalOffset = options["boxVerticalOffset"]
-                    ? options["boxVerticalOffset"]
-                    : BOX_VERTICAL_OFFSET;
+            var boxMarginHorizontal = options["boxMarginHorizontal"] ? options["boxMarginHorizontal"] :
+                BOX_MARGIN_HORIZONTAL;
+            var boxMarginVertical = options["boxMarginVertical"] ? options["boxMarginVertical"] :
+                BOX_MARGIN_VERTICAL;
+            var boxHorizontalOffset = options["boxHorizontalOffset"] ? options["boxHorizontalOffset"] :
+                BOX_HORIZONTAL_OFFSET;
+            var boxVerticalOffset = options["boxVerticalOffset"] ? options["boxVerticalOffset"] :
+                BOX_VERTICAL_OFFSET;
 
             // calculates the size of the axis based on the
             var horizontalAxisSize = chartWidth - horizontalMargin;
@@ -688,9 +639,7 @@
                 var textWidth = textMetrics.width;
 
                 // updates the largest width
-                largestWidth = textWidth > largestWidth
-                        ? textWidth
-                        : largestWidth;
+                largestWidth = textWidth > largestWidth ? textWidth : largestWidth;
 
                 // increments the value count
                 valueCount++;
@@ -707,8 +656,8 @@
 
             // calculates the box position with the offset and anchored
             // to the current defined position
-            var boxX = marginLeft + verticalLabelWidth + horizontalAxisSize
-                    - boxWidth - boxHorizontalOffset;
+            var boxX = marginLeft + verticalLabelWidth + horizontalAxisSize - boxWidth -
+                boxHorizontalOffset;
             var boxY = marginTop + boxVerticalOffset;
 
             // sets the background box fill color as the background box color
@@ -753,7 +702,7 @@
                 // draws the color indicator circle
                 context.beginPath();
                 context.arc(currentX - 24, currentY - 10, 10, 0, Math.PI * 2,
-                        true);
+                    true);
                 context.fill();
                 context.closePath();
 
@@ -856,14 +805,14 @@
 
         // switches over the method
         switch (method) {
-            case "draw" :
+            case "draw":
                 // initializes the plugin
                 draw();
 
                 // breaks the switch
                 break;
 
-            case "default" :
+            case "default":
                 // initializes the plugin
                 initialize();
 

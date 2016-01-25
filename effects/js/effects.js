@@ -35,19 +35,19 @@
 
         // animates the opacity to a low level
         matchedObject.animate({
-                    "opacity" : FADE_MINIMUM_OPACITY
-                }, downTimeSlot, function() {
-                    setTimeout(function() {
-                                // returns the opacity back to normal
-                                matchedObject.animate({
-                                            "opacity" : 1.0
-                                        }, upTimeSlot);
+            "opacity": FADE_MINIMUM_OPACITY
+        }, downTimeSlot, function() {
+            setTimeout(function() {
+                // returns the opacity back to normal
+                matchedObject.animate({
+                    "opacity": 1.0
+                }, upTimeSlot);
 
-                                // calls the callback in case it
-                                // is defined
-                                callback && callback();
-                            }, stopTimeSlot);
-                });
+                // calls the callback in case it
+                // is defined
+                callback && callback();
+            }, stopTimeSlot);
+        });
 
         // returns the object
         return this;

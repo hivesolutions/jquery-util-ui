@@ -42,8 +42,8 @@
 
         // the default values for the player
         var defaults = {
-            mini : DEFAULT_MINI,
-            brandingUrl : DEFAULT_BRANDING_URL
+            mini: DEFAULT_MINI,
+            brandingUrl: DEFAULT_BRANDING_URL
         };
 
         // sets the default method value
@@ -87,42 +87,35 @@
             var player = matchedObject.parents(".jquery-player");
 
             // appends the extra html code to the player
-            player.append("<div class=\"jquery-player-overlay\"></div>"
-                    + "<div class=\"jquery-player-loading-overlay\">"
-                    + "<div class=\"jquery-player-loading-overlay-contents\">"
-                    + "<div id=\"div3\" class=\"jquery-player-loading-overlay-image\"></div>"
-                    + "<div class=\"jquery-player-loading-overlay-message\">LOADING</div>"
-                    + "</div>"
-                    + "</div>"
-                    + "<div class=\"jquery-player-controls\">"
-                    + "<div class=\"jquery-player-button play\"></div>"
-                    + "<div class=\"jquery-player-button volume\"></div>"
-                    + "<div class=\"jquery-player-button fullscreen\"></div>"
-                    + "<div class=\"jquery-player-current-time\">01:01</div>"
-                    + "<div class=\"jquery-player-progress\">"
-                    + "<div class=\"jquery-player-cursor\"></div>"
-                    + "<div class=\"jquery-player-progress-bar\">"
-                    + "<div class=\"jquery-player-progress-bar-active\"></div>"
-                    + "</div>"
-                    + "</div>"
-                    + "<div class=\"jquery-player-branding\"></div>"
-                    + "<div class=\"jquery-player-volume-control\">"
-                    + "<div class=\"jquery-player-volume-control-bar\">"
-                    + "<div class=\"jquery-player-volume-control-bar-active\"></div>"
-                    + "</div>" + "</div>"
-                    + "<div class=\"jquery-player-duration\">31:45</div>"
-                    + "</div>");
+            player.append("<div class=\"jquery-player-overlay\"></div>" +
+                "<div class=\"jquery-player-loading-overlay\">" +
+                "<div class=\"jquery-player-loading-overlay-contents\">" +
+                "<div id=\"div3\" class=\"jquery-player-loading-overlay-image\"></div>" +
+                "<div class=\"jquery-player-loading-overlay-message\">LOADING</div>" + "</div>" +
+                "</div>" + "<div class=\"jquery-player-controls\">" +
+                "<div class=\"jquery-player-button play\"></div>" +
+                "<div class=\"jquery-player-button volume\"></div>" +
+                "<div class=\"jquery-player-button fullscreen\"></div>" +
+                "<div class=\"jquery-player-current-time\">01:01</div>" +
+                "<div class=\"jquery-player-progress\">" + "<div class=\"jquery-player-cursor\"></div>" +
+                "<div class=\"jquery-player-progress-bar\">" +
+                "<div class=\"jquery-player-progress-bar-active\"></div>" + "</div>" + "</div>" +
+                "<div class=\"jquery-player-branding\"></div>" +
+                "<div class=\"jquery-player-volume-control\">" +
+                "<div class=\"jquery-player-volume-control-bar\">" +
+                "<div class=\"jquery-player-volume-control-bar-active\"></div>" + "</div>" + "</div>" +
+                "<div class=\"jquery-player-duration\">31:45</div>" + "</div>");
 
             // retrieves the overlay
             var overlay = jQuery(".jquery-player-overlay", player);
 
             // retrieves the loading overlay
             var loadingOverlay = jQuery(".jquery-player-loading-overlay",
-                    player);
+                player);
 
             // retrieves the loading overlay image
             var loadingOverlayImage = jQuery(
-                    ".jquery-player-loading-overlay-image", player);
+                ".jquery-player-loading-overlay-image", player);
 
             // retrieves the player controls
             var playerControls = jQuery(".jquery-player-controls", player);
@@ -184,214 +177,214 @@
 
             // retrieves the fullscreen button
             var fullscreenButton = jQuery(".jquery-player-button.fullscreen",
-                    player);
+                player);
 
             // retrieves the branding (button)
             var branding = jQuery(".jquery-player-branding", player);
 
             // registers the play button for the click event
             playButton.click(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        _togglePlay(player, options);
-                    });
+                _togglePlay(player, options);
+            });
 
             // registers the volume button for the click event
             volumeButton.click(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        _toggleAudio(player, options);
-                    });
+                _toggleAudio(player, options);
+            });
 
             // registers the fullscreen button for the click event
             fullscreenButton.click(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        _toggleFullscreen(player, options);
-                    });
+                _toggleFullscreen(player, options);
+            });
 
             // registers the branding for the click event
             branding.click(function(event) {
-                        window.open(brandingUrl);
-                    });
+                window.open(brandingUrl);
+            });
 
             // registers the video element from the modified subtree event
             videoElement.bind("loadedmetadata", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        // starts the layout
-                        _startLayout(player, options);
-                    });
+                // starts the layout
+                _startLayout(player, options);
+            });
 
             videoElement.bind("waiting", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        var loadingOverlay = jQuery(
-                                ".jquery-player-loading-overlay", player);
+                var loadingOverlay = jQuery(
+                    ".jquery-player-loading-overlay", player);
 
-                        loadingOverlay.fadeIn(350);
-                    });
+                loadingOverlay.fadeIn(350);
+            });
 
             videoElement.bind("playing", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        var loadingOverlay = jQuery(
-                                ".jquery-player-loading-overlay", player);
+                var loadingOverlay = jQuery(
+                    ".jquery-player-loading-overlay", player);
 
-                        loadingOverlay.fadeOut(200);
-                    });
+                loadingOverlay.fadeOut(200);
+            });
 
             videoElement.bind("canplay", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        var loadingOverlay = jQuery(
-                                ".jquery-player-loading-overlay", player);
+                var loadingOverlay = jQuery(
+                    ".jquery-player-loading-overlay", player);
 
-                        loadingOverlay.fadeOut(200);
-                    });
+                loadingOverlay.fadeOut(200);
+            });
 
             // registers the video element from the modified subtree event
             videoElement.bind("DOMSubtreeModified", function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        // starts the layout
-                        _startLayout(player, options);
-                    });
+                // starts the layout
+                _startLayout(player, options);
+            });
 
             // registers the video element from the modified subtree event
             video.resize(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        // starts the layout
-                        _startLayout(player, options);
-                    });
+                // starts the layout
+                _startLayout(player, options);
+            });
 
             // registers the video for the click event
             video.click(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        // starts toggles playing the video
-                        _togglePlay(player, options);
-                    });
+                // starts toggles playing the video
+                _togglePlay(player, options);
+            });
 
             // registers the overlay for the click event
             overlay.click(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element.parents(".jquery-player");
+                // retrieves the player
+                var player = element.parents(".jquery-player");
 
-                        // starts playing the video
-                        _play(player, options);
+                // starts playing the video
+                _play(player, options);
 
-                        // fades out the overlay
-                        element.fadeOut(200);
-                    });
+                // fades out the overlay
+                element.fadeOut(200);
+            });
 
             // registers for the mouse enter event in the player
             player.mouseenter(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element;
+                // retrieves the player
+                var player = element;
 
-                        // retrieves the overlay
-                        var overlay = jQuery(".jquery-player-overlay", player);
+                // retrieves the overlay
+                var overlay = jQuery(".jquery-player-overlay", player);
 
-                        // retrieves the player controls
-                        var playerControls = jQuery(".jquery-player-controls",
-                                player);
+                // retrieves the player controls
+                var playerControls = jQuery(".jquery-player-controls",
+                    player);
 
-                        // retrieves the started attribute
-                        var started = player.data("started");
+                // retrieves the started attribute
+                var started = player.data("started");
 
-                        // in case the player is sarted
-                        if (started) {
-                            // shiws the player controls
-                            playerControls.fadeIn(350);
-                        }
-                        // otherwise the player is not started
-                        else {
-                            // changes the opacity of the overlay
-                            overlay.animate({
-                                        opacity : 1.0
-                                    }, 250);
-                        }
-                    });
+                // in case the player is sarted
+                if (started) {
+                    // shiws the player controls
+                    playerControls.fadeIn(350);
+                }
+                // otherwise the player is not started
+                else {
+                    // changes the opacity of the overlay
+                    overlay.animate({
+                        opacity: 1.0
+                    }, 250);
+                }
+            });
 
             // registers for the mouse leave event in the player
             player.mouseleave(function(event) {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the player
-                        var player = element;
+                // retrieves the player
+                var player = element;
 
-                        // retrieves the overlay
-                        var overlay = jQuery(".jquery-player-overlay", player);
+                // retrieves the overlay
+                var overlay = jQuery(".jquery-player-overlay", player);
 
-                        // retrieves the player controls
-                        var playerControls = jQuery(".jquery-player-controls",
-                                player);
+                // retrieves the player controls
+                var playerControls = jQuery(".jquery-player-controls",
+                    player);
 
-                        // retrieves the started attribute
-                        var started = player.data("started");
+                // retrieves the started attribute
+                var started = player.data("started");
 
-                        // in case the player is started
-                        if (started) {
-                            // hides the player controls
-                            playerControls.fadeOut(200);
-                        }
-                        // otherwise the player is not started
-                        else {
-                            // changes the opacity of the overlay
-                            overlay.animate({
-                                        opacity : 0.7
-                                    }, 250);
-                        }
-                    });
+                // in case the player is started
+                if (started) {
+                    // hides the player controls
+                    playerControls.fadeOut(200);
+                }
+                // otherwise the player is not started
+                else {
+                    // changes the opacity of the overlay
+                    overlay.animate({
+                        opacity: 0.7
+                    }, 250);
+                }
+            });
         };
 
         var _startLayout = function(player, options) {
@@ -403,11 +396,11 @@
 
             // retrieves the loading overlay
             var loadingOverlay = jQuery(".jquery-player-loading-overlay",
-                    player);
+                player);
 
             // retrieves the loading overlay contents
             var loadingOverlayContents = jQuery(
-                    ".jquery-player-loading-overlay-contents", player);
+                ".jquery-player-loading-overlay-contents", player);
 
             // retrieves the video height
             var videoHeight = video.height();
@@ -437,9 +430,8 @@
 
             // centers the loading overlay contents using the margin from the video
             // height and the loading overlay contents height
-            loadingOverlayContents.css("marginTop",
-                    ((videoHeight / 2) - (loadingOverlayContentsHeight / 2))
-                            + "px");
+            loadingOverlayContents.css("marginTop", ((videoHeight / 2) - (loadingOverlayContentsHeight / 2)) +
+                "px");
 
             // does the layout of the player
             _doLayout(player, options);
@@ -456,8 +448,7 @@
             var playerControlsWidth = playerControls.width();
 
             // calculates the player controls x position
-            var playerControlsX = (playerWidth / 2.0)
-                    - (playerControlsWidth / 2.0);
+            var playerControlsX = (playerWidth / 2.0) - (playerControlsWidth / 2.0);
 
             // sets the player controls x position
             playerControls.css("left", playerControlsX + "px");
@@ -600,7 +591,7 @@
 
             // retrieves the fullscreen button
             var fullscreenButton = jQuery(".jquery-player-button.fullscreen",
-                    player);
+                player);
 
             // retrieves the video element from the player
             var video = jQuery("video", player);
@@ -624,7 +615,7 @@
 
             // retrieves the fullscreen button
             var fullscreenButton = jQuery(".jquery-player-button.fullscreen",
-                    player);
+                player);
 
             // retrieves the video element from the player
             var video = jQuery("video", player);
@@ -644,14 +635,14 @@
 
         // switches over the method
         switch (method) {
-            case "play" :
+            case "play":
                 // plays the content
                 _play(matchedObject, options);
 
                 // breaks the switch
                 break;
 
-            case "default" :
+            case "default":
                 // initializes the plugin
                 initialize();
 
@@ -690,8 +681,7 @@
         /**
          * Creates the necessary html for the component.
          */
-        var _appendHtml = function() {
-        };
+        var _appendHtml = function() {};
 
         /**
          * Registers the event handlers for the created objects.
@@ -713,10 +703,8 @@
                 // updates the element reference transformations
                 elementReference.style.msTransform = "rotate(" + count + "deg)";
                 elementReference.style.OTransform = "rotate(" + count + "deg)";
-                elementReference.style.MozTransform = "rotate(" + count
-                        + "deg)";
-                elementReference.style.WebkitTransform = "rotate(" + count
-                        + "deg)";
+                elementReference.style.MozTransform = "rotate(" + count + "deg)";
+                elementReference.style.WebkitTransform = "rotate(" + count + "deg)";
 
                 // in case the rotation overflows
                 if (count == 360) {
@@ -729,8 +717,8 @@
 
                 // sets the timout for the new rotation
                 window.setTimeout(function() {
-                            _rotate(element, count);
-                        }, 30);
+                    _rotate(element, count);
+                }, 30);
             });
         };
 

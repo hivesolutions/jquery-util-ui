@@ -36,11 +36,11 @@
     jQuery.fn.slideshow = function(options) {
         // the default values for the slideshow
         var defaults = {
-            height : 440,
-            topRatio : 1.40,
-            screenshotIndex : 0,
-            screenshotsPrefix : "",
-            screenshots : []
+            height: 440,
+            topRatio: 1.40,
+            screenshotIndex: 0,
+            screenshotsPrefix: "",
+            screenshots: []
         };
 
         // sets the default options value
@@ -151,15 +151,13 @@
          */
         var _appendHtml = function() {
             // prepends the html slideshow code to the body
-            jQuery("body").prepend("<div id=\"jquery-slideshow-container\">"
-                    + "<div id=\"jquery-slideshow\">"
-                    + "<div id=\"jquery-slideshow-image-area\">" + "</div>"
-                    + "<div id=\"jquery-slideshow-control-area\">"
-                    + "<div id=\"jquery-slideshow-button-left\"></div>"
-                    + "<div id=\"jquery-slideshow-counter\"></div>"
-                    + "<div id=\"jquery-slideshow-button-right\"></div>"
-                    + "<div id=\"jquery-slideshow-button-close\"></div>"
-                    + "</div>" + "</div>" + "</div>")
+            jQuery("body").prepend("<div id=\"jquery-slideshow-container\">" +
+                "<div id=\"jquery-slideshow\">" + "<div id=\"jquery-slideshow-image-area\">" + "</div>" +
+                "<div id=\"jquery-slideshow-control-area\">" +
+                "<div id=\"jquery-slideshow-button-left\"></div>" +
+                "<div id=\"jquery-slideshow-counter\"></div>" +
+                "<div id=\"jquery-slideshow-button-right\"></div>" +
+                "<div id=\"jquery-slideshow-button-close\"></div>" + "</div>" + "</div>" + "</div>")
 
             // prepends the html overlay code to the body
             jQuery("body").prepend("<div id=\"jquery-slideshow-overlay\"></div>")
@@ -170,29 +168,29 @@
          */
         var _registerHandlers = function() {
             matchedObject.click(function(event) {
-                        // shows the slideshow
-                        show();
-                    });
+                // shows the slideshow
+                show();
+            });
 
             jQuery("#jquery-slideshow-button-left").click(function(event) {
-                        // shows the previous screenshot
-                        previous();
-                    });
+                // shows the previous screenshot
+                previous();
+            });
 
             jQuery("#jquery-slideshow-button-right").click(function(event) {
-                        // shows the next screenshot
-                        next();
-                    });
+                // shows the next screenshot
+                next();
+            });
 
             jQuery("#jquery-slideshow-button-close").click(function(event) {
-                        // closes the slideshow
-                        hide();
-                    });
+                // closes the slideshow
+                hide();
+            });
 
             jQuery(window).resize(function(event) {
-                        // resizes the overlay
-                        _resizeOverlay();
-                    });
+                // resizes the overlay
+                _resizeOverlay();
+            });
         };
 
         /**
@@ -245,8 +243,7 @@
             slideshowImage.attr("src", targetPath);
 
             // sets the label in the slideshow
-            slideshowCounter.html(String(screenshotIndex + 1) + " of "
-                    + String(screenshots.length));
+            slideshowCounter.html(String(screenshotIndex + 1) + " of " + String(screenshots.length));
         };
 
         /**
@@ -255,8 +252,8 @@
         var _endUpdate = function() {
             // sets the timeout for the fade in
             setTimeout(function() {
-                        jQuery("#jquery-slideshow-image").fadeIn(200);
-                    }, 200);
+                jQuery("#jquery-slideshow-image").fadeIn(200);
+            }, 200);
         };
 
         var _resizeOverlay = function() {
@@ -288,8 +285,9 @@
             var slideshowImageArea = jQuery("#jquery-slideshow-image-area");
 
             // appends the slideshow image to the slideshow image area
-            slideshowImageArea.append("<img id=\"jquery-slideshow-image\" height=\"403\" width=\"780\" src=\""
-                    + targetPath + "\" alt=\"\" />");
+            slideshowImageArea.append(
+                "<img id=\"jquery-slideshow-image\" height=\"403\" width=\"780\" src=\"" + targetPath +
+                "\" alt=\"\" />");
 
             // retrieves the slideshow image
             var slideshowImage = jQuery("#jquery-slideshow-image");
@@ -312,14 +310,14 @@
         var elementsLength = elements.length;
 
         elements.bind("load", function() {
-                    if (--elementsLength <= 0) {
-                        callback.call(elements, this);
-                    }
-                }).each(function() {
-                    // cached images don't fire load sometimes
-                    if (this.complete || this.complete === undefined) {
-                        this.src = this.src;
-                    }
-                });
+            if (--elementsLength <= 0) {
+                callback.call(elements, this);
+            }
+        }).each(function() {
+            // cached images don't fire load sometimes
+            if (this.complete || this.complete === undefined) {
+                this.src = this.src;
+            }
+        });
     }
 })(jQuery);

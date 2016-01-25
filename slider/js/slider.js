@@ -45,9 +45,9 @@
 
         // the default values for the slideshow
         var defaults = {
-            sets : [],
-            width : SLIDER_SCREENSHOT_WIDTH,
-            margin : SLIDER_SCREENSHOT_MARGIN
+            sets: [],
+            width: SLIDER_SCREENSHOT_WIDTH,
+            margin: SLIDER_SCREENSHOT_MARGIN
         };
 
         // sets the default method value
@@ -76,14 +76,10 @@
          */
         var _appendHtml = function() {
             // retrieves the contents
-            var contents = options["contents"]
-                    ? options["contents"]
-                    : matchedObject;
+            var contents = options["contents"] ? options["contents"] : matchedObject;
 
             // retrieves the selector
-            var selector = options["selector"]
-                    ? options["selector"]
-                    : matchedObject;
+            var selector = options["selector"] ? options["selector"] : matchedObject;
 
             // retrieves the sets
             var sets = options["sets"];
@@ -98,33 +94,27 @@
             var setIndex = options["setIndex"] ? options["setIndex"] : 0;
 
             // retrieves the screenshot index
-            var screenshotIndex = options["screenshotIndex"]
-                    ? options["screenshotIndex"]
-                    : 0;
+            var screenshotIndex = options["screenshotIndex"] ? options["screenshotIndex"] : 0;
 
             // retrieves the thumbnail index
-            var thumbnailIndex = options["thumbnailIndex"]
-                    ? options["thumbnailIndex"]
-                    : 0;
+            var thumbnailIndex = options["thumbnailIndex"] ? options["thumbnailIndex"] : 0;
 
             // retrieves the sets length
             var setsLength = sets.length;
 
             // appends the html to the matched object
-            matchedObject.append("<div class=\"jquery-slider-contents\">"
-                    + "<div class=\"jquery-slider-container\">"
-                    + "<div class=\"jquery-slider-container-slider\"></div>"
-                    + "</div>" + "</div>"
-                    + "<div class=\"jquery-slider-buttons\">" + "<ul></ul>"
-                    + "</div>");
+            matchedObject.append("<div class=\"jquery-slider-contents\">" +
+                "<div class=\"jquery-slider-container\">" +
+                "<div class=\"jquery-slider-container-slider\"></div>" + "</div>" + "</div>" +
+                "<div class=\"jquery-slider-buttons\">" + "<ul></ul>" + "</div>");
 
             // appends the html to the selector object
-            selector.append("<div class=\"jquery-slider-selector-button jquery-slider-selector-button-left\"></div>"
-                    + "<div class=\"jquery-slider-selector-container\">"
-                    + "<div class=\"jquery-slider-selector-container-slider\">"
-                    + "</div>"
-                    + "</div>"
-                    + "<div class=\"jquery-slider-selector-button jquery-slider-selector-button-right\"></div>");
+            selector.append(
+                "<div class=\"jquery-slider-selector-button jquery-slider-selector-button-left\"></div>" +
+                "<div class=\"jquery-slider-selector-container\">" +
+                "<div class=\"jquery-slider-selector-container-slider\">" + "</div>" + "</div>" +
+                "<div class=\"jquery-slider-selector-button jquery-slider-selector-button-right\"></div>"
+            );
 
             // iterates over all the sets
             for (var index in sets) {
@@ -136,12 +126,12 @@
 
                 // retrieves the slider selector container slider
                 var sliderSelectorContainerSlider = jQuery(
-                        ".jquery-slider-selector-container-slider", selector);
+                    ".jquery-slider-selector-container-slider", selector);
 
                 // adds the thumbnail image
-                sliderSelectorContainerSlider.append("<div class=\"jquery-slider-selector-thumbnail\">"
-                        + "<img class=\"jquery-slider-selector-thumbnail-image\" src=\""
-                        + currentSetThumbnail + "\" />" + "</div>");
+                sliderSelectorContainerSlider.append("<div class=\"jquery-slider-selector-thumbnail\">" +
+                    "<img class=\"jquery-slider-selector-thumbnail-image\" src=\"" +
+                    currentSetThumbnail + "\" />" + "</div>");
             }
 
             // in case the sets length is not enought
@@ -149,19 +139,18 @@
             if (setsLength < 4) {
                 // retrieves the slider selector buttons
                 var sliderSelectorButton = jQuery(
-                        ".jquery-slider-selector-button", selector);
+                    ".jquery-slider-selector-button", selector);
 
                 // hides the slider selector buttons
                 sliderSelectorButton.css("visibility", "hidden");
             }
 
             // calculates the slider selector container slider with
-            var sliderSelectorContainerSliderWidth = SLIDER_THUMBNAIL_WIDTH
-                    * setsLength;
+            var sliderSelectorContainerSliderWidth = SLIDER_THUMBNAIL_WIDTH * setsLength;
 
             // retrieves the slider selector container slider
             var sliderSelectorContainerSlider = jQuery(
-                    ".jquery-slider-selector-container-slider", selector);
+                ".jquery-slider-selector-container-slider", selector);
 
             // sets the slider selector container slider with
             sliderSelectorContainerSlider.width(sliderSelectorContainerSliderWidth);
@@ -204,12 +193,12 @@
 
             // iterates over each matched object
             matchedObject.each(function() {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // updates the current status
-                        _update(element, options);
-                    });
+                // updates the current status
+                _update(element, options);
+            });
         };
 
         /**
@@ -221,15 +210,15 @@
 
             // retrieves the slider selector thumbnail
             var sliderSelectorThumbnail = jQuery(
-                    ".jquery-slider-selector-thumbnail", selector);
+                ".jquery-slider-selector-thumbnail", selector);
 
             // retrieves the slider selector button left
             var sliderSelectorButtonLeft = jQuery(
-                    ".jquery-slider-selector-button-left", selector);
+                ".jquery-slider-selector-button-left", selector);
 
             // retrieves the slider selector button right
             var sliderSelectorButtonRight = jQuery(
-                    ".jquery-slider-selector-button-right", selector);
+                ".jquery-slider-selector-button-right", selector);
 
             // registers for the click event
             sliderSelectorThumbnail.click(function() {
@@ -254,33 +243,33 @@
 
             // registers for the click event
             sliderSelectorButtonLeft.click(function() {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the selector
-                        var selector = element.parents(".jquery-slider-selector");
+                // retrieves the selector
+                var selector = element.parents(".jquery-slider-selector");
 
-                        // retrieves the slider
-                        var slider = selector.data("slider");
+                // retrieves the slider
+                var slider = selector.data("slider");
 
-                        // moves the thumbnails to the left
-                        __moveThumbnailsLeft(slider, options);
-                    });
+                // moves the thumbnails to the left
+                __moveThumbnailsLeft(slider, options);
+            });
 
             // registers for the click event
             sliderSelectorButtonRight.click(function() {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the selector
-                        var selector = element.parents(".jquery-slider-selector");
+                // retrieves the selector
+                var selector = element.parents(".jquery-slider-selector");
 
-                        // retrieves the slider
-                        var slider = selector.data("slider");
+                // retrieves the slider
+                var slider = selector.data("slider");
 
-                        // moves the thumbnails to the right
-                        __moveThumbnailsRight(slider, options);
-                    });
+                // moves the thumbnails to the right
+                __moveThumbnailsRight(slider, options);
+            });
         };
 
         var _move = function(matchedObject, options) {
@@ -342,14 +331,10 @@
             var currentSet = sets[setIndex];
 
             // retrieves the current set screenshots
-            var currentSetScreenshots = currentSet["screenshots"]
-                    ? currentSet["screenshots"]
-                    : [];
+            var currentSetScreenshots = currentSet["screenshots"] ? currentSet["screenshots"] : [];
 
             // retrieves the current set contents
-            var currentSetContents = currentSet["contents"]
-                    ? currentSet["contents"]
-                    : "";
+            var currentSetContents = currentSet["contents"] ? currentSet["contents"] : "";
 
             // retrieves the current set screenshots length
             var currentSetScreenshotsLength = currentSetScreenshots.length;
@@ -359,15 +344,15 @@
 
             // retrieves the slider container slider
             var sliderContainerSlider = jQuery(
-                    ".jquery-slider-container-slider", matchedObject);
+                ".jquery-slider-container-slider", matchedObject);
 
             // retrieves the slider selector container slider
             var sliderSelectorContainerSlider = jQuery(
-                    ".jquery-slider-selector-container-slider", selector);
+                ".jquery-slider-selector-container-slider", selector);
 
             // retrieves the slider buttons list
             var sliderButtonsList = jQuery(".jquery-slider-buttons > ul",
-                    matchedObject);
+                matchedObject);
 
             // calculates the margin left (for the thumbnails)
             var marginLeft = 408 * thumbnailIndex * -1;
@@ -379,8 +364,8 @@
 
             // animates the slider selector container slider to the desired index
             sliderSelectorContainerSlider.animate({
-                        "margin-left" : String(marginLeft) + "px"
-                    }, 300);
+                "margin-left": String(marginLeft) + "px"
+            }, 300);
 
             // in case the update was targeted only at the thumbnails
             // (the margin on them changed) there's no nedd to update anything else
@@ -401,16 +386,15 @@
                 var currentSetScreenshot = currentSetScreenshots[index];
 
                 // adds the screenshot to the slider container slider
-                sliderContainerSlider.append("<img class=\"jquery-slider-image\" src=\""
-                        + currentSetScreenshot + "\" />");
+                sliderContainerSlider.append("<img class=\"jquery-slider-image\" src=\"" +
+                    currentSetScreenshot + "\" />");
 
                 // adds the list item to the slider buttons list
                 sliderButtonsList.append("<li></li>");
             }
 
             // calculates the slider container slider with
-            var sliderContainerSliderWidth = currentSetScreenshotsLength
-                    * (width + margin)
+            var sliderContainerSliderWidth = currentSetScreenshotsLength * (width + margin)
 
             // updates the slider container slider width
             sliderContainerSlider.width(sliderContainerSliderWidth);
@@ -420,25 +404,25 @@
 
             // retrieves the slider buttons list items
             var sliderButtonsListItems = jQuery(
-                    ".jquery-slider-buttons > ul > li", matchedObject);
+                ".jquery-slider-buttons > ul > li", matchedObject);
 
             // registers for the click event
             sliderButtonsListItems.click(function() {
-                        // retrieves the element
-                        var element = jQuery(this);
+                // retrieves the element
+                var element = jQuery(this);
 
-                        // retrieves the slider
-                        var slider = element.parents(".jquery-slider");
+                // retrieves the slider
+                var slider = element.parents(".jquery-slider");
 
-                        // retrieves the index of the element
-                        var index = element.index();
+                // retrieves the index of the element
+                var index = element.index();
 
-                        // sets the screenshot index in the options
-                        options["screenshotIndex"] = index;
+                // sets the screenshot index in the options
+                options["screenshotIndex"] = index;
 
-                        // moves to the screenshot index
-                        __moveToScreenshotIndex(slider, options);
-                    });
+                // moves to the screenshot index
+                __moveToScreenshotIndex(slider, options);
+            });
 
             // unbinds the document from the (previous) keydown event
             _document.unbind("keydown", __updateScreenshotKeyboard);
@@ -455,22 +439,18 @@
             var screenshotIndex = matchedObject.data("screenshotIndex");
 
             // retrieves the width
-            var width = options["width"]
-                    ? options["width"]
-                    : matchedObject.data("width")
+            var width = options["width"] ? options["width"] : matchedObject.data("width")
 
             // retrieves the margin
-            var margin = options["margin"]
-                    ? options["margin"]
-                    : matchedObject.data("margin")
+            var margin = options["margin"] ? options["margin"] : matchedObject.data("margin")
 
             // retrieves the slider container slider
             var sliderContainerSlider = jQuery(
-                    ".jquery-slider-container-slider", matchedObject);
+                ".jquery-slider-container-slider", matchedObject);
 
             // retrieves the slider buttons list items
             var sliderButtonsListItems = jQuery(
-                    ".jquery-slider-buttons > ul > li", matchedObject);
+                ".jquery-slider-buttons > ul > li", matchedObject);
 
             // calculates the margin left
             var marginLeft = screenshotIndex * (width + margin) * -1;
@@ -480,8 +460,8 @@
 
             // animates the slider container slider to the desired index
             sliderContainerSlider.animate({
-                        "margin-left" : String(marginLeft) + "px"
-                    }, 500);
+                "margin-left": String(marginLeft) + "px"
+            }, 500);
 
             // retrieves the slider buttons list item
             var sliderButtonsListItem = sliderButtonsListItems.get(screenshotIndex);
@@ -512,9 +492,9 @@
             // runs the fade transition in the contents
             // and updates the state on callback
             contents.fadeTransition(500, function() {
-                        // updates the system
-                        _update(matchedObject, options);
-                    });
+                // updates the system
+                _update(matchedObject, options);
+            });
         };
 
         var __moveToThumbnailIndex = function(matchedObject, options) {
@@ -574,9 +554,7 @@
             var currentSet = sets[setIndex];
 
             // retrieves the current set screenshots
-            var currentSetScreenshots = currentSet["screenshots"]
-                    ? currentSet["screenshots"]
-                    : [];
+            var currentSetScreenshots = currentSet["screenshots"] ? currentSet["screenshots"] : [];
 
             // retrieves the current set screenshots length
             var currentSetScreenshotsLength = currentSetScreenshots.length;
@@ -584,15 +562,15 @@
             // switches over the code
             switch (code) {
                 // in case it's the left arrow
-                case 37 :
+                case 37:
                     // decrements the screenshot index
                     screenshotIndex--;
 
                     // breaks the switch
                     break;
 
-                // in case it's the right arrow
-                case 39 :
+                    // in case it's the right arrow
+                case 39:
                     // increments the screenshot index
                     screenshotIndex++;
 
@@ -601,15 +579,14 @@
             }
 
             // in case the screenshot index overflows the base value
-            if (screenshotIndex < 0
-                    || screenshotIndex >= currentSetScreenshotsLength) {
+            if (screenshotIndex < 0 || screenshotIndex >= currentSetScreenshotsLength) {
                 // returns immediately (overflow)
                 return;
             }
 
             // creates the options map
             var options = {
-                screenshotIndex : screenshotIndex
+                screenshotIndex: screenshotIndex
             };
 
             // moves to the screenshot index
@@ -618,14 +595,14 @@
 
         // switches over the method
         switch (method) {
-            case "move" :
+            case "move":
                 // moves to the set index
                 _move(matchedObject, options);
 
                 // breaks the switch
                 break;
 
-            case "default" :
+            case "default":
                 // initializes the plugin
                 initialize();
 
