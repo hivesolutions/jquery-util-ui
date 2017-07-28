@@ -707,7 +707,7 @@
                 elementReference.style.WebkitTransform = "rotate(" + count + "deg)";
 
                 // in case the rotation overflows
-                if (count == 360) {
+                if (count === 360) {
                     // resets the rotation count
                     count = 0
                 }

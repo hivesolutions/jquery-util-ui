@@ -219,7 +219,7 @@
             var targetPath = screenshotsPrefix + currentScreenshot;
 
             // in case the slideshow image does not exists
-            if (slideshowImage.length == 0) {
+            if (slideshowImage.length === 0) {
                 // appends the slideshow image
                 __appendSlideshowImage();
 
@@ -230,9 +230,9 @@
             // retrieves the current path
             var currentPath = slideshowImage.attr("src");
 
-            // in case the current and the target path are the smae
-            if (currentPath == targetPath) {
-                // returns immediately
+            // in case the current and the target path are the same,
+            // returns immediately
+            if (currentPath === targetPath) {
                 return;
             }
 

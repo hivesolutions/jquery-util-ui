@@ -369,7 +369,7 @@
 
             // in case the update was targeted only at the thumbnails
             // (the margin on them changed) there's no nedd to update anything else
-            if (marginLeft != previousMarginLeft) {
+            if (marginLeft !== previousMarginLeft) {
                 // returns immediately
                 return;
             }
